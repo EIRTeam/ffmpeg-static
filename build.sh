@@ -219,8 +219,17 @@ for decoder in $FF_ENABLE; do
         ;;
       esac
     ;;
+
     'vorbis')
       enable_features+=(--enable-libvorbis --enable-demuxer=vorbis --enable-parser=vorbis --enable-decoder=vorbis --enable-decoder=libvorbis)
+    ;;
+    'h264')
+      enable_features+=(--enable-gpl --enable-nonfree --enable-decoder=mpeg4,h264,aac,aac_latm,mp3 --enable-demuxer=mov,aac --enable-parser=h264,mpeg4video,mpegaudio,mpegvideo,aac,aac_latm)
+      case $platform in
+        'windows')
+          enable_features+=(--enable-hwaccel=h264_d3d11va --enable-hwaccel=h264_dxva2)
+        ;;
+      esac
     ;;
     'opus')
       enable_features+=(--enable-libopus --enable-demuxer=opus --enable-parser=opus --enable-decoder=opus --enable-decoder=libopus)
@@ -407,7 +416,7 @@ export PKG_CONFIG_PATH="$TARGET_DIR/lib/pkgconfig${cc_pkg_config_path}"
   \
   $disable_everything \
   $debug_flags \
-  --disable-gpl --disable-nonfree --disable-programs \
+  --disable-programs \
   --enable-shared --disable-static \
   --enable-opengl \
   ${enable_features[@]} \

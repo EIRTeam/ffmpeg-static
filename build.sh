@@ -13,7 +13,7 @@ final_target_dir=
 cross_platform=
 platform=linux
 
-FF_ENABLE="${FF_ENABLE:-"vp8 vp9 opus vorbis"}"
+FF_ENABLE="${FF_ENABLE:-"vp8 vp9 opus vorbis h264"}"
 
 uname -mpi | grep -qE 'x86|i386|i686' && is_x86=1 || is_x86=0
 

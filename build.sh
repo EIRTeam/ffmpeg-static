@@ -224,7 +224,7 @@ for decoder in $FF_ENABLE; do
       enable_features+=(--enable-libvorbis --enable-demuxer=vorbis --enable-parser=vorbis --enable-decoder=vorbis --enable-decoder=libvorbis)
     ;;
     'h264')
-      enable_features+=(--enable-gpl --enable-nonfree --enable-decoder=mpeg4,h264,aac,aac_latm,mp3 --enable-demuxer=mov,aac --enable-parser=h264,mpeg4video,mpegaudio,mpegvideo,aac,aac_latm)
+      enable_features+=(--enable-gpl --enable-nonfree --enable-decoder=mpeg4,h264,aac,aac_latm,mp3 --enable-demuxer=mov,aac,flv,avi --enable-parser=h264,mpeg4video,mpegaudio,mpegvideo,aac,aac_latm)
       case $platform in
         'windows')
           enable_features+=(--enable-hwaccel=h264_d3d11va --enable-hwaccel=h264_dxva2)
